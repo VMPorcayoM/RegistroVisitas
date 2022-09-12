@@ -1,0 +1,77 @@
+<nav class="navbar navbar-light justify-content-between px-4">
+    <a class="navbar-brand text-white">Registro de entrada</a>
+    <button class="btn my-2 my-sm-0 text-white" >Cerrar sesión</button>
+</nav>
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="form" class="mb-2">
+            <div class="mb-3 row">
+                <div class="col-6">
+                    <label for="nombres" class="form-label">Nombre(s)</label>
+                    <input formControlName="nombres" type="text" class="form-control" id="inputName" placeholder="Juan"> 
+                </div>                
+                <div class="col-6">
+                    <label for="apellidoPaterno" class="form-label">Apellido paterno</label>
+                    <input formControlName="apellidoPaterno" placeholdertype="text" class="form-control" id="inputName" placeholder="Martinez"> 
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <div class="col-6">
+                    <label for="apellidoMaterno" class="form-label">Apellido materno</label>
+                    <input formControlName="apellidoMaterno" placeholdertype="text" class="form-control" id="inputName" placeholder="Peréz"> 
+                </div>
+                <div class="col-6">
+                    <label for="tipoIdentif" class="form-label">Tipo de identificación</label>
+                    <select class="form-control" id="tipoIdentif" formControlName="tipoIdentif">
+                        <option value="">Selecciona una opción</option>
+                        <option *ngFor="let ident of tiposIdent; let i=index" value="{{i+1}}">{{ident}}</option>
+                    </select>   
+                </div>         
+            </div>
+            <div class="mb-3 row">
+                <div class="col-6">
+                    <label for="NoIdent" class="form-label">No. identificación</label>
+                    <input formControlName="NoIdent" placeholdertype="text" class="form-control" id="inputName"
+                        placeholder="No. identificación">
+                </div>
+                <div class="col-6">
+                    <label for="telefono" class="form-label">Teléfono</label>
+                    <input formControlName="telefono" placeholdertype="number" class="form-control" id="inputName"
+                        placeholder="0000000000">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <div class="col-6">
+                    <label for="correo" class="form-label">Correo</label>
+                    <input formControlName="correo" placeholdertype="text" class="form-control" id="inputName"
+                        placeholder="juan@correo.com">
+                </div>
+                <div class="col-6">
+                    <label for="direccion" class="form-label">Dirección</label>
+                    <input formControlName="direccion" placeholdertype="text" class="form-control" id="inputName"
+                        placeholder="Dirección">
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <div class="col-6">
+                    <label for="oficina" class="form-label">¿A qué oficina se dirige?</label>
+                    <input formControlName="telefono" placeholdertype="text" class="form-control" id="inputName" placeholder="Oficina"> 
+                </div>                
+                <div class="col-6">
+                    <label for="motivo" class="form-label">Motivo de la visita</label>
+                    <input formControlName="motivo" placeholdertype="text" class="form-control" id="inputName" placeholder="Motivo"> 
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <div class="col-6">
+                <label for="identFrontal" class="form-label">Foto identificación frontal</label><br>
+                <input type="file"/>
+            </div>
+            <div class="col-6">
+                <label for="identTrasera" class="form-label">Foto identificación trasera</label><br>
+                <input type="file"/>
+            </div>
+            </div>
+        </form>
+    </div>
+</div>  
