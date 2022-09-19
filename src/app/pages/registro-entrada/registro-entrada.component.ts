@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-registro-entrada',
   templateUrl: './registro-entrada.component.html',
@@ -7,7 +8,9 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class RegistroEntradaComponent implements OnInit {
   tiposIdent:string[]=['INE','Pasaporte','Licencia'];
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthService) { }
 
   //Reactive form
   form = this.formBuilder.group({
@@ -25,8 +28,20 @@ export class RegistroEntradaComponent implements OnInit {
   });
 
   ngOnInit(): void {
+    this.form.get('fechaIngreso')?.patchValue(new Date().toISOString());
+
   }
 
-   
+   registrar(){
+    if(!this.form.valid){
+      alert('Llene todos los campos')
+      console.log(this.form.value)
+      return;
+    }
+    console.log('registrado')
+   }
 
+   logout(){
+      this.authService.loggedFalse();
+   }
 }

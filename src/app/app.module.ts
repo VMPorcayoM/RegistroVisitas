@@ -7,11 +7,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RegistroEntradaComponent } from './pages/registro-entrada/registro-entrada.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ConsultaComponent } from './pages/consulta/consulta.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegistroEntradaComponent
+    RegistroEntradaComponent,
+    ConsultaComponent
   ],
   imports: [
     BrowserModule,

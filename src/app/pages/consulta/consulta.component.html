@@ -1,0 +1,86 @@
+<nav class="navbar navbar-light justify-content-between px-4">
+    <a class="navbar-brand text-white">Consulta</a>
+    <button class="btn my-2 my-sm-0 text-white" >Cerrar sesión</button>
+</nav>
+<div class="card">
+    <div class="card-body">
+            <div class="mb-5 mt-4">
+                <label class="form-label">Folio</label>
+                <div class="row">
+                    <div class="col-10">
+                        
+                        <input type="number" class="form-control" id="inputName"> 
+                    </div>
+                    <div class="col-2">
+                        <button class="btn button btn-primary">Consultar</button>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="mostrar">
+            <div class="mb-3 row">
+                <div class="col-6">
+                    <label class="form-label">Nombre(s)</label>
+                    <input type="text" class="form-control" id="inputName" placeholder="Juan" readonly> 
+                </div>                
+                <div class="col-6">
+                    <label class="form-label">Apellido paterno</label>
+                    <input placeholdertype="text" class="form-control" id="inputName" placeholder="Martinez" readonly> 
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <div class="col-6">
+                    <label class="form-label">Apellido materno</label>
+                    <input placeholdertype="text" class="form-control" id="inputName" placeholder="Peréz" readonly> 
+                </div>
+                <div class="col-6">
+                    <label class="form-label">Tipo de identificación</label>
+                    <input class="form-control" id="inputName" placeholder="Tipo" readonly> 
+                </div>         
+            </div>
+            <div class="mb-3 row">
+                <div class="col-6">
+                    <label class="form-label">No. identificación</label>
+                    <input placeholdertype="text" class="form-control" id="inputName"
+                        placeholder="No. identificación" readonly>
+                </div>
+                <div class="col-6">
+                    <label class="form-label">Teléfono</label>
+                    <input  type="tel" class="form-control" placeholder="0000000000" readonly>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <div class="col-6">
+                    <label class="form-label">Correo</label>
+                    <input  placeholdertype="text" class="form-control" id="inputName"
+                        placeholder="juan@correo.com" readonly>
+                </div>
+                <div class="col-6">
+                    <label class="form-label">Dirección</label>
+                    <input  placeholdertype="text" class="form-control" id="inputName"
+                        placeholder="Dirección" readonly>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <div class="col-6">
+                    <label class="form-label">¿A qué oficina se dirige?</label>
+                    <input placeholdertype="text" class="form-control" id="inputName" placeholder="Oficina" readonly> 
+                </div>                
+                <div class="col-6">
+                    <label class="form-label">Motivo de la visita</label>
+                    <input placeholdertype="text" class="form-control" id="inputName" placeholder="Motivo" readonly> 
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <div class="col-6">
+                <label for="identFrontal" class="form-label">Foto identificación frontal</label><br>
+                
+            </div>
+            <div class="col-6">
+                <label for="identTrasera" class="form-label">Foto identificación trasera</label><br>
+                
+            </div>
+            </div>
+        </div>
+    </div>
+    
+</div>  
