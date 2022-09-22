@@ -6,7 +6,7 @@ import { RegistroEntradaComponent } from './pages/registro-entrada/registro-entr
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'login',
     loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule)
         
   },

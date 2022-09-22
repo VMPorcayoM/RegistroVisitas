@@ -4,13 +4,17 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthService {
-  private logged:boolean = false;
+  private logged:boolean = true;
   constructor() { }
   loggedTrue() {  
     this.logged = true;
   }
   loggedFalse() {  
     this.logged = false;
+  }
+
+  getLogged():boolean{
+    return this.logged;
   }
 
 }

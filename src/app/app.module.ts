@@ -8,12 +8,14 @@ import { RegistroEntradaComponent } from './pages/registro-entrada/registro-entr
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConsultaComponent } from './pages/consulta/consulta.component';
+import { VisualizarComponent } from './pages/visualizar/visualizar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistroEntradaComponent,
-    ConsultaComponent
+    ConsultaComponent,
+    VisualizarComponent
   ],
   imports: [
     BrowserModule,
