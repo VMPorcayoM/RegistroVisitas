@@ -7,20 +7,25 @@ import { RegistroEntradaComponent } from './pages/registro-entrada/registro-entr
 const routes: Routes = [
   {
     path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule)
-        
+    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule)  
   },
    {
-    path: 'registro',
-     component: RegistroEntradaComponent,
-     canActivate: [AuthGuard],    
-  },
-  {
-   path: 'consulta',
-    component: ConsultaComponent,
-    canActivate: [AuthGuard],    
- }
-
+    path: '',
+    canActivate: [AuthGuard],
+    
+    children: [
+      {
+        path: 'registro',
+        component: RegistroEntradaComponent,
+      },
+      {
+        path: 'consulta',
+        component: ConsultaComponent, 
+     } ,
+     
+     { path: '', redirectTo: '/login', pathMatch: 'full' }
+    ]
+  }
 ];
 
 @NgModule({
