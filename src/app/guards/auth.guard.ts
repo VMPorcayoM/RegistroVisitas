@@ -18,18 +18,17 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot
     ) {
       let res=this.authService.getLogged();
-      console.log(res)
       if(res){
         if(this.authService.getType()==='registro'){
-          this.router.navigate(['/registro']);
+          return res;
         }else{
-          this.router.navigate(['/consulta']);
+          return res;
         }
 
       }else{
         this.router.navigate(['login']);
+        return res;
       }
-    return  res;
   }
 
 }

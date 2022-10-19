@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -7,12 +6,11 @@ import {Router} from '@angular/router';
 export class AuthService {
   private logged:boolean = false;
   private type:string='';
-  constructor(private router: Router) { }
-  loggedTrue() {  
+  constructor() { }
+  loggedTrue() {
     this.logged = true;
-    this.router.navigate(['/consulta']);
   }
-  loggedFalse() {  
+  loggedFalse() {
     this.logged = false;
   }
 

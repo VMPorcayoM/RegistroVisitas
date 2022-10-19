@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class HttpService {
 
-  private base_url = 'http://localhost:3000'
+  private base_url = 'http://localhost:3000/api'
 
   constructor(private http: HttpClient) { }
 
@@ -20,5 +20,7 @@ export class HttpService {
   auth(nickname:string, pass:string):Observable<boolean>{
     return this.http.get<boolean>(`${this.base_url}/auth/${nickname}/${pass}`);
   }
-
+  getUserType(nickname:string):Observable<string>{
+    return this.http.get<string>(`${this.base_url}/type/${nickname}`);
+  }
 }
