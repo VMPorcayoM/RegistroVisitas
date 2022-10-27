@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -6,7 +7,9 @@ import { Injectable } from '@angular/core';
 export class AuthService {
   private logged:boolean = false;
   private type:string='';
-  constructor() { }
+  constructor(
+    private router:Router
+  ) { }
   loggedTrue() {
     this.logged = true;
   }
@@ -22,6 +25,11 @@ export class AuthService {
   }
   getType():string{
     return this.type;
+  }
+  logout(){
+    this.loggedFalse();
+    this.type='';
+    this.router.navigate(['/login']);
   }
 
 }

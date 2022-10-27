@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Oficina } from '../models/oficina';
 import { Observable } from 'rxjs';
+import { Rol } from '../models/rol';
+import { Visita } from '../models/visita';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +22,10 @@ export class HttpService {
   auth(nickname:string, pass:string):Observable<boolean>{
     return this.http.get<boolean>(`${this.base_url}/auth/${nickname}/${pass}`);
   }
-  getUserType(nickname:string):Observable<string>{
-    return this.http.get<string>(`${this.base_url}/type/${nickname}`);
+  getUserType(nickname:string):Observable<Rol[]>{
+    return this.http.get<Rol[]>(`${this.base_url}/type/${nickname}`);
+  }
+  getVisita(folio:string):Observable<Visita[]>{
+    return this.http.get<Visita[]>(`${this.base_url}/visita/${folio}`);
   }
 }

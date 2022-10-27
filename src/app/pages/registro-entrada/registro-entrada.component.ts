@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { Oficina } from 'src/app/models/oficina';
 import { HttpService } from 'src/app/services/http.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro-entrada',
@@ -15,7 +16,8 @@ export class RegistroEntradaComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private httpService:HttpService) { }
+    private httpService:HttpService,
+    private router:Router) { }
 
   //Reactive form
   form = this.formBuilder.group({
@@ -36,12 +38,12 @@ export class RegistroEntradaComponent implements OnInit {
     this.form.get('fechaIngreso')?.patchValue(new Date().toISOString());
     this.httpService.getOficinas().subscribe((r)=>{
       this.oficinas=r;
-      console.log(r)
     });
 
-    this.httpService.auth('chanona','12345').subscribe((r)=>{
-      console.log(r)
-    });
+  }
+
+  cerrarSesion(){
+    this.authService.logout();
   }
 
    registrar(){
@@ -53,7 +55,4 @@ export class RegistroEntradaComponent implements OnInit {
     console.log('registrado')
    }
 
-   logout(){
-      this.authService.loggedFalse();
-   }
 }

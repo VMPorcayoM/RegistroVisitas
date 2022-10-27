@@ -1,6 +1,6 @@
 <nav class="navbar navbar-light justify-content-between px-4">
     <a class="navbar-brand text-white">Registro de entrada</a>
-    <button (click)="logout()" class="btn my-2 my-sm-0 text-white" >Cerrar sesión</button>
+    <button (click)="cerrarSesion()" class="btn my-2 my-sm-0 text-white" >Cerrar sesión</button>
 </nav>
 <div class="card">
     <div class="card-body">
@@ -8,25 +8,25 @@
             <div class="mb-3 row">
                 <div class="col-6">
                     <label for="nombres" class="form-label">Nombre(s) *</label>
-                    <input formControlName="nombres" type="text" class="form-control" id="inputName" placeholder="Juan"> 
-                </div>                
+                    <input formControlName="nombres" type="text" class="form-control" id="inputName" placeholder="Juan">
+                </div>
                 <div class="col-6">
                     <label for="apellidoPaterno" class="form-label">Apellido paterno *</label>
-                    <input formControlName="apellidoPaterno" placeholdertype="text" class="form-control" id="inputName" placeholder="Martinez"> 
+                    <input formControlName="apellidoPaterno" placeholdertype="text" class="form-control" id="inputName" placeholder="Martinez">
                 </div>
             </div>
             <div class="mb-3 row">
                 <div class="col-6">
                     <label for="apellidoMaterno" class="form-label">Apellido materno</label>
-                    <input formControlName="apellidoMaterno" placeholdertype="text" class="form-control" id="inputName" placeholder="Peréz"> 
+                    <input formControlName="apellidoMaterno" placeholdertype="text" class="form-control" id="inputName" placeholder="Peréz">
                 </div>
                 <div class="col-6">
                     <label for="tipoIdentif" class="form-label">Tipo de identificación *</label>
                     <select class="form-control" id="tipoIdentif" formControlName="tipoIdentif">
                         <option value="">Selecciona una opción</option>
                         <option *ngFor="let ident of tiposIdent; let i=index" value="{{ident}}">{{ident}}</option>
-                    </select>   
-                </div>         
+                    </select>
+                </div>
             </div>
             <div class="mb-3 row">
                 <div class="col-6">
@@ -54,11 +54,11 @@
             <div class="mb-3 row">
                 <div class="col-6">
                     <label for="oficina" class="form-label">¿A qué oficina se dirige? *</label>
-                    <input formControlName="oficina" placeholdertype="text" class="form-control" id="inputName" placeholder="Oficina"> 
-                </div>                
+                    <input formControlName="oficina" placeholdertype="text" class="form-control" id="inputName" placeholder="Oficina">
+                </div>
                 <div class="col-6">
                     <label for="motivo" class="form-label">Motivo de la visita *</label>
-                    <input formControlName="motivo" placeholdertype="text" class="form-control" id="inputName" placeholder="Motivo"> 
+                    <input formControlName="motivo" placeholdertype="text" class="form-control" id="inputName" placeholder="Motivo">
                 </div>
             </div>
             <div class="mb-3 row">
@@ -76,5 +76,5 @@
             <button class="btn button btn-primary w-25 m-auto" (click)="registrar()">Registrar</button>
         </div>
     </div>
-    
-</div>  
+
+</div>
