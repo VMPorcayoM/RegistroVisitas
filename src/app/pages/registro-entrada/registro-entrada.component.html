@@ -22,7 +22,7 @@
                 </div>
                 <div class="col-6">
                     <label for="tipoIdentif" class="form-label">Tipo de identificación *</label>
-                    <select class="form-control" id="tipoIdentif" formControlName="tipoIdentif">
+                    <select class="form-control" id="tipoIdentif" formControlName="tipoIdent">
                         <option value="">Selecciona una opción</option>
                         <option *ngFor="let ident of tiposIdent; let i=index" value="{{ident}}">{{ident}}</option>
                     </select>
@@ -31,7 +31,7 @@
             <div class="mb-3 row">
                 <div class="col-6">
                     <label for="NoIdent" class="form-label">No. identificación *</label>
-                    <input formControlName="NoIdent" placeholdertype="text" class="form-control" id="inputName"
+                    <input formControlName="noIdent" placeholdertype="text" class="form-control" id="inputName"
                         placeholder="No. identificación">
                 </div>
                 <div class="col-6">

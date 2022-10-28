@@ -28,4 +28,7 @@ export class HttpService {
   getVisita(folio:string):Observable<Visita[]>{
     return this.http.get<Visita[]>(`${this.base_url}/visita/${folio}`);
   }
+  agregarVisita(visita:Visita):Observable<boolean>{
+    return this.http.post<boolean>(`${this.base_url}/visita`,visita);
+  }
 }
