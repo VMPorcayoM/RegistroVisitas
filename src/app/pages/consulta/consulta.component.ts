@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { Visita } from 'src/app/models/visita';
 import { AuthService } from 'src/app/services/auth.service';
 import { HttpService } from 'src/app/services/http.service';
+import { DomSanitizer } from '@angular/platform-browser';
+
 interface Registro{
   folio: number,
   nombres: string,
@@ -19,11 +21,15 @@ export class ConsultaComponent implements OnInit {
   mostrarVisita:boolean=false;
   mostrarNoHayVisita:boolean=false;
   visita:Visita={};
+  imagePath1:any;
+  imagePath2:any;
+
   constructor(
     private httpService:HttpService,
     private formBuilder:FormBuilder,
     private authService:AuthService,
-    private router: Router) { }
+    private router: Router,
+    private _sanitizer: DomSanitizer) { }
 
    //Reactive form
    form = this.formBuilder.group({
@@ -43,6 +49,10 @@ export class ConsultaComponent implements OnInit {
         this.mostrarNoHayVisita=false;
         this.visita=r[0];
         this.mostrarVisita=true;
+        this.imagePath1=this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,'
+        + this.visita.identificacionFrontal);
+        this.imagePath2=this._sanitizer.bypassSecurityTrustResourceUrl('data:image/jpg;base64,'
+        + this.visita.identificacionTrasera);
       }else if(r.length===0){
         this.mostrarNoHayVisita=true;
         this.mostrarVisita=false;

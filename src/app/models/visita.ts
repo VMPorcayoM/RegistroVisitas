@@ -10,7 +10,7 @@ export interface Visita{
   oficinaQueVisita?:string,
   direccion?:string,
   fechaIngreso?:string,
-  identificacionFrontal?:string,
-  identificacionTrasera?:string,
+  identificacionFrontal?:any,
+  identificacionTrasera?:any,
   motivo?:string
 }

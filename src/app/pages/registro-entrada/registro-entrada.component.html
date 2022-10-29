@@ -64,16 +64,16 @@
             <div class="mb-3 row">
                 <div class="col-6">
                 <label for="identFrontal" class="form-label">Foto identificación frontal</label><br>
-                <input type="file"/>
+                <input #idFrontal type="file" accept="image/png, image/jpeg"/>
             </div>
             <div class="col-6">
                 <label for="identTrasera" class="form-label">Foto identificación trasera</label><br>
-                <input type="file"/>
+                <input #idTrasera type="file" accept="image/png, image/jpeg"/>
             </div>
             </div>
         </form>
         <div class="mt-3 d-flex">
-            <button class="btn button btn-primary w-25 m-auto" (click)="registrar()">Registrar</button>
+            <button [disabled]="disabledRegistrarButton" class="btn button btn-primary w-25 m-auto" (click)="registrar()">Registrar</button>
         </div>
     </div>
 

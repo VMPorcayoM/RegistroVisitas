@@ -25,6 +25,10 @@ export class LoginComponent implements OnInit {
     let nickname= (<HTMLInputElement>document.getElementById('nickname')).value;
     let pass= (<HTMLInputElement>document.getElementById('pass')).value;
 
+    if(nickname==='' || pass ===''){
+      return;
+    }
+
     this.httpService.auth(nickname, pass).subscribe(r=>{
       if(r){
         this.authService.loggedTrue();

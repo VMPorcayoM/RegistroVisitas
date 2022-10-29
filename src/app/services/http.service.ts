@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Oficina } from '../models/oficina';
 import { Observable } from 'rxjs';
@@ -28,7 +28,10 @@ export class HttpService {
   getVisita(folio:string):Observable<Visita[]>{
     return this.http.get<Visita[]>(`${this.base_url}/visita/${folio}`);
   }
-  agregarVisita(visita:Visita):Observable<boolean>{
-    return this.http.post<boolean>(`${this.base_url}/visita`,visita);
+  agregarVisita(visita:Visita):Observable<string>{
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json'});
+    let options = { headers: headers };
+    return this.http.post<string>(`${this.base_url}/nuevavisita`,visita,options);
   }
 }
