@@ -2,6 +2,8 @@
 <h2 class="m-3">Todas las visitas</h2>
 <div class="card">
   <div class="card-body">
+
+    <button (click)="generaReporte()"  class="btn button btn-primary">Generar reporte</button>
     <table mat-table [dataSource]="dataSource" class="w-100" matSort>
 
       <!-- dynamic Column -->
