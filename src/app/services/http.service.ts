@@ -4,6 +4,7 @@ import { Oficina } from '../models/oficina';
 import { Observable } from 'rxjs';
 import { Rol } from '../models/rol';
 import { Visita } from '../models/visita';
+import { Usuario } from '../models/usuario';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,21 @@ export class HttpService {
   getOficinas(): Observable<Oficina[]>{
     var res = this.http.get<Oficina[]>(`${this.base_url}/oficinas`);
     return res;
+  }
+
+  getVisitas():Observable<Visita[]>{
+    var res = this.http.get<Visita[]>(`${this.base_url}/visita`);
+    return res;
+  }
+  getUsuarios():Observable<Usuario[]>{
+    var res = this.http.get<Usuario[]>(`${this.base_url}/usuarios`);
+    return res;
+  }
+  crearUsuario(usuario:Usuario):Observable<boolean>{
+    let headers = new HttpHeaders({
+      'Content-Type': 'application/json'});
+    let options = { headers: headers };
+    return this.http.post<boolean>(`${this.base_url}/usuario`,usuario,options);
   }
 
   auth(nickname:string, pass:string):Observable<boolean>{
@@ -34,4 +50,5 @@ export class HttpService {
     let options = { headers: headers };
     return this.http.post<string>(`${this.base_url}/nuevavisita`,visita,options);
   }
+
 }

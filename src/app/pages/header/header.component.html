@@ -1,0 +1,10 @@
+<nav class="navbar navbar-light justify-content-between px-4">
+  <a class="navbar-brand text-white">Registro de entrada</a>
+  <div class="" *ngIf="isAdmin">
+    <button (click)="consultar()" class="btn my-2 my-sm-0 text-white" >Consultar</button>
+    <button (click)="registrar()" class="btn my-2 my-sm-0 text-white" >Registrar</button>
+    <button (click)="reporte()" class="btn my-2 my-sm-0 text-white" >Reporte</button>
+    <button (click)="usuarios()" class="btn my-2 my-sm-0 text-white" >Usuarios</button>
+  </div>
+  <button (click)="cerrarSesion()" class="btn my-2 my-sm-0 text-white" >Cerrar sesión</button>
+</nav>

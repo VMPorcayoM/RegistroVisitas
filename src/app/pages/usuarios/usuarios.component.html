@@ -1,0 +1,45 @@
+<app-header></app-header>
+<h2 class="m-3">Gestión de los usuarios</h2>
+<div class="card">
+  <div class="card-body">
+    <table mat-table [dataSource]="dataSource" class="w-100" matSort>
+
+      <!-- dynamic Column -->
+      <ng-container matColumnDef="{{head}}" *ngFor="let head of HEADER_DATA; let i=index">
+        <th class="p-2" mat-header-cell *matHeaderCellDef mat-sort-header>{{head | uppercase}} </th>
+          <td class="p-2" mat-cell *matCellDef="let element; let in=index">
+            {{ element| getelemet:i}}
+
+          </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="HEADER_DATA"></tr>
+      <tr mat-row *matRowDef="let row; columns: HEADER_DATA;" ></tr>
+    </table>
+
+    <hr>
+    <h2>Crear un nuevo usuario</h2>
+    <form [formGroup]="form" class="mb-2">
+      <div class="mb-3 row">
+          <div class="col-6">
+              <label for="nickname" class="form-label">Nickname *</label>
+              <input formControlName="nickname" type="text" class="form-control" id="inputName" placeholder="Juan">
+          </div>
+          <div class="col-6">
+              <label for="pass" class="form-label">Contraseña *</label>
+              <input formControlName="pass" placeholdertype="text" class="form-control" id="inputName" placeholder="password123">
+          </div>
+      </div>
+      <div class="col-6">
+        <label for="rol" class="form-label">Rol *</label>
+        <select class="form-control" id="tipoIdentif" formControlName="rol">
+            <option value="">Selecciona una opción</option>
+            <option *ngFor="let rol of roles; let i=index" value="{{rol}}">{{rol}}</option>
+        </select>
+    </div>
+  </form>
+  <div class="mt-3 d-flex">
+    <button [disabled]="disabledRegistrarButton" class="btn button btn-primary w-25 m-auto" (click)="crearUsuario()">Crear nuevo</button>
+</div>
+
+  </div>
+</div>

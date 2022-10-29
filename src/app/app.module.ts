@@ -9,13 +9,22 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConsultaComponent } from './pages/consulta/consulta.component';
 import { VisualizarComponent } from './pages/visualizar/visualizar.component';
+import { HeaderComponent } from './pages/header/header.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { GetelemetPipe } from './pipes/getelemet.pipe';
+import * as fromPipes from './pipes';
+import { UsuariosComponent } from './pages/usuarios/usuarios.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistroEntradaComponent,
     ConsultaComponent,
-    VisualizarComponent
+    VisualizarComponent,
+    HeaderComponent,
+    ...fromPipes.pipes,
+    UsuariosComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,10 +34,13 @@ import { VisualizarComponent } from './pages/visualizar/visualizar.component';
     BrowserAnimationsModule,
     NgbModule,
     HttpClientModule,
+    MatTableModule,
+    MatFormFieldModule,
   ],
   exports: [
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ...fromPipes.pipes,
   ],
   providers: [],
   bootstrap: [AppComponent]

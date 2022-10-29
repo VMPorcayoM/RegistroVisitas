@@ -31,9 +31,8 @@ export class RegistroEntradaComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService,
     private httpService:HttpService,
-    private router:Router) {
+    ) {
 
      }
 
@@ -60,9 +59,6 @@ export class RegistroEntradaComponent implements OnInit {
 
   }
 
-  cerrarSesion(){
-    this.authService.logout();
-  }
 
    registrar(){
     this.disabledRegistrarButton=true;

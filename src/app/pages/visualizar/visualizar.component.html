@@ -1,1 +1,22 @@
-<p>visualizar works!</p>
+<app-header></app-header>
+<h2 class="m-3">Todas las visitas</h2>
+<div class="card">
+  <div class="card-body">
+    <table mat-table [dataSource]="dataSource" class="w-100" matSort>
+
+      <!-- dynamic Column -->
+      <ng-container matColumnDef="{{head}}" *ngFor="let head of HEADER_DATA; let i=index">
+        <th class="p-2" mat-header-cell *matHeaderCellDef mat-sort-header>{{head | uppercase}} </th>
+          <td class="p-2" mat-cell *matCellDef="let element; let in=index">
+            {{ element| getelemet:i}}
+
+          </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="HEADER_DATA"></tr>
+      <tr mat-row *matRowDef="let row; columns: HEADER_DATA;" ></tr>
+    </table>
+
+
+  </div>
+
+</div>

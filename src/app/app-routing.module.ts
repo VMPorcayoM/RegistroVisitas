@@ -3,16 +3,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
 import { ConsultaComponent } from './pages/consulta/consulta.component';
 import { RegistroEntradaComponent } from './pages/registro-entrada/registro-entrada.component';
+import { UsuariosComponent } from './pages/usuarios/usuarios.component';
+import { VisualizarComponent } from './pages/visualizar/visualizar.component';
 
 const routes: Routes = [
   {
     path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule)  
+    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule)
   },
    {
     path: '',
     canActivate: [AuthGuard],
-    
+
     children: [
       {
         path: 'registro',
@@ -20,9 +22,17 @@ const routes: Routes = [
       },
       {
         path: 'consulta',
-        component: ConsultaComponent, 
-     } ,
-     
+        component: ConsultaComponent,
+     },
+      {
+        path: 'reporte',
+        component: VisualizarComponent,
+     },
+      {
+        path: 'usuarios',
+        component: UsuariosComponent,
+     },
+
      { path: '', redirectTo: '/login', pathMatch: 'full' }
     ]
   }
