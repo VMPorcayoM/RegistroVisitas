@@ -3,7 +3,11 @@
 <div class="card">
   <div class="card-body">
 
-    <button (click)="generaReporte()"  class="btn button btn-primary">Generar reporte</button>
+    <button (click)="generaReporte()"  class="btn button btn-primary mb-4">Generar reporte</button>
+
+    <div class="example-header">
+        <input matInput (keyup)="applyFilter(filter)" placeholder="Filter" #filter>
+    </div>
     <table mat-table [dataSource]="dataSource" class="w-100" matSort>
 
       <!-- dynamic Column -->

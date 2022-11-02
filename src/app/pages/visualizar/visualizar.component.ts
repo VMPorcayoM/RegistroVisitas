@@ -62,6 +62,10 @@ export class VisualizarComponent implements OnInit {
 
   HEADER_DATA = ['Folio', 'Nombre(s)', 'Apellidos', 'Tipo Ident', 'No. Ident', 'Tel', 'Correo', 'Oficina', 'Fecha', 'Motivo'];
 
+  applyFilter(filterInput:HTMLInputElement) {// Remove whitespace
+    let filterValue = filterInput.value.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+    this.dataSource.filter = filterValue;
+  }
 
 
   generaReporte() {
